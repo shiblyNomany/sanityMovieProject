@@ -6,17 +6,17 @@ import MovieCard from "../assets/Component/MovieCard";
 const Movies = () => {
   // const { movies } = useMovieContext()
 
-  const { movies, loading ,catagory } = useMovieContext();
+  const { movies, loading ,catagory,getUserSearchData } = useMovieContext();
 
   return (
     <Layout title={"Movies"}>
       <section className="flex justify-center my-5 gap-2">
         <input
-          type="search"
+          type="search" onChange={getUserSearchData}
           placeholder="Search a movie name"
           className="input input-bordered w-[50%]"
         />
-        <select className=" select select-bordered">
+        <select onSelect={} className=" select select-bordered">
           <option disabled  selected>
             Select Catagory
           </option>

@@ -32,11 +32,29 @@ export function MovieDataProvider({ children }) {
         setLoading(false)
      
         return setCatagory(catagory)
-    
-      
-    
+
     }
-    
+
+   
+
+    const getUserSearchData = (e)=>{
+        const userSearchValue = e.target.value
+        getUserMovie(userSearchValue)
+
+
+        // let searchQuery = `*[_type == "movie"]`
+        // if (searchTerm){
+        //     searchQuery += `
+        // console.log(userSearchValue)
+    }
+
+    const getUserMovie = async (userData)=>{
+      const Query =`*[_type=="Movie" &&  (MovieName match " ${userData}*")] 
+      {_id , MovieName , CatagoryName->{Catagory} ,"imageUrl": Movieimage.asset->url,content,MovieVideo}`
+      const searchMovieResult=await client.fetch(Query)
+      setMovies(searchMovieResult)
+    //   console.log(searchMovieResult)
+    }
 
 
      useEffect(() => {
@@ -50,7 +68,7 @@ export function MovieDataProvider({ children }) {
 
 
 
-    return <MovieContext.Provider value={{ movies,catagory,loading }}>
+    return <MovieContext.Provider value={{ movies,catagory,loading,getUserSearchData }}>
         {children}
     </MovieContext.Provider>
 }
