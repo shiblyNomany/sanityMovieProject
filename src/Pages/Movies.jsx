@@ -16,7 +16,7 @@ const Movies = () => {
           placeholder="Search a movie name"
           className="input input-bordered w-[50%]"
         />
-        <select onSelect={} className=" select select-bordered">
+        <select  className=" select select-bordered">
           <option disabled  selected>
             Select Catagory
           </option>

@@ -39,7 +39,7 @@ const MovieIndivisual = () => {
 
         <div className="grid-cols-9 card-body pl-40 pr-10">
           <h2 className="card-title text-4xl badge badge-success p-5 ">
-            {" "}
+           
             {MovieName}
           </h2>
 
